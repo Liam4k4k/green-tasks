@@ -18,9 +18,7 @@
 
 :root{
   --green:#35c978;
-  --green-dark:#1f9d5a;
   --mint:#8be3b1;
-  --soft:#effcf5;
   --ink:#173526;
   --glass:rgba(255,255,255,.68);
   --line:rgba(53,201,120,.16);
@@ -90,7 +88,7 @@ header{
   background:linear-gradient(135deg,#28b969,#79dfa4);
   display:grid;
   place-items:center;
-  color:#fff;
+  color:white;
   font-size:21px;
   box-shadow:0 10px 25px rgba(40,185,105,.25);
 }
@@ -147,15 +145,7 @@ h1 span{
   border-radius:30px;
   padding:28px;
 }
-Donc par exemple, quelqu'un ajoute :
 
-    Faire mes devoirs
-
-Puis ferme le site → quanDonc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quan
 .tasks-card{
   margin-top:25px;
 }
@@ -167,19 +157,7 @@ Puis ferme le site → quan
   gap:20px;
   margin-bottom:22px;
 }
-Donc par exemple, quelqu'un ajoute :
 
-    Faire mes devoirs
-
-Puis ferme le site → quanDonc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quanDonc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quan
 .tasks-title{
   display:flex;
   align-items:center;
@@ -190,7 +168,7 @@ Puis ferme le site → quan
   width:52px;
   height:52px;
   border-radius:18px;
-  background:#fff;
+  background:white;
   display:grid;
   place-items:center;
   font-size:23px;
@@ -207,15 +185,7 @@ Puis ferme le site → quan
   margin-top:4px;
 }
 
-.clear{Donc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quanDonc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quan
+.clear{
   border:0;
   background:#f0faf4;
   color:#2b9d5e;
@@ -223,11 +193,6 @@ Puis ferme le site → quan
   border-radius:12px;
   font-weight:600;
   cursor:pointer;
-  transition:.2s;
-}
-
-.clear:hover{
-  background:#e2f7ea;
 }
 
 .progress-wrap{
@@ -277,7 +242,6 @@ input{
   color:var(--ink);
   font:inherit;
   outline:none;
-  transition:.2s;
 }
 
 input:focus{
@@ -294,7 +258,6 @@ input:focus{
   font-weight:700;
   cursor:pointer;
   box-shadow:0 10px 22px rgba(40,185,105,.2);
-  transition:.2s;
 }
 
 .add-button:hover{
@@ -315,7 +278,6 @@ input:focus{
   border:1px solid rgba(53,201,120,.09);
   border-radius:17px;
   padding:14px 15px;
-  transition:.25s;
   animation:taskIn .25s ease;
 }
 
@@ -330,24 +292,18 @@ input:focus{
   }
 }
 
-.task:hover{
-  transform:translateY(-1px);
-  box-shadow:0 8px 25px rgba(35,100,62,.06);
-}
-
 .checkbox{
   width:22px;
   height:22px;
   border:2px solid #9bdab5;
   border-radius:7px;
-  background:#fff;
+  background:white;
   cursor:pointer;
   flex-shrink:0;
   display:grid;
   place-items:center;
   color:white;
   font-size:13px;
-  transition:.2s;
 }
 
 .task.completed .checkbox{
@@ -375,13 +331,6 @@ input:focus{
   color:#d76d6d;
   border-radius:10px;
   cursor:pointer;
-  opacity:.75;
-  transition:.2s;
-}
-
-.delete:hover{
-  opacity:1;
-  background:#ffeaea;
 }
 
 .empty{
@@ -487,10 +436,6 @@ footer{
     align-items:flex-start;
   }
 
-  .clear{
-    padding:9px 11px;
-  }
-
   .add-task{
     flex-direction:column;
   }
@@ -506,10 +451,6 @@ footer{
   .hero h1{
     letter-spacing:-1.5px;
   }
-
-  .stats{
-    grid-template-columns:repeat(3,1fr);
-  }
 }
 </style>
 </head>
@@ -519,6 +460,7 @@ footer{
 <div class="container">
 
 <header>
+
   <div class="logo">
     <div class="logo-mark">✓</div>
     <span>Green Tasks</span>
@@ -527,6 +469,7 @@ footer{
   <div class="badge">
     simple · organisé · efficace
   </div>
+
 </header>
 
 <section class="hero">
@@ -552,20 +495,16 @@ footer{
 
     <div class="tasks-title">
 
-      <div class="task-icon">
-        ✓
-      </div>
+      <div class="task-icon">✓</div>
 
       <div>
         <h2>Mes tâches</h2>
-        <p id="taskSummary">
-          Aucune tâche pour le moment
-        </p>
+        <p id="taskSummary">Aucune tâche pour le moment</p>
       </div>
 
     </div>
 
-    <button class="clear" id="clearCompleted">
+    <button class="clear" id="clearCompleted" type="button">
       Nettoyer
     </button>
 
@@ -574,13 +513,8 @@ footer{
   <div class="progress-wrap">
 
     <div class="progress-top">
-      <span id="progressText">
-        Commence une tâche
-      </span>
-
-      <span id="percent">
-        0%
-      </span>
+      <span id="progressText">Commence une tâche</span>
+      <span id="percent">0%</span>
     </div>
 
     <div class="progress">
@@ -613,13 +547,9 @@ footer{
 
   <div class="empty" id="emptyState">
 
-    <div class="empty-icon">
-      🌱
-    </div>
+    <div class="empty-icon">🌱</div>
 
-    <h3>
-      Rien à faire pour l'instant
-    </h3>
+    <h3>Rien à faire pour l'instant</h3>
 
     <p>
       Ajoute ta première tâche et commence tranquillement.
@@ -633,9 +563,7 @@ footer{
 
   <section class="card small">
 
-    <h3>
-      Ton avancement
-    </h3>
+    <h3>Ton avancement</h3>
 
     <p>
       Green Tasks sauvegarde automatiquement tes tâches dans ton navigateur.
@@ -665,9 +593,7 @@ footer{
 
   <section class="card small">
 
-    <h3>
-      Petit détail
-    </h3>
+    <h3>Petit détail</h3>
 
     <p>
       Aucune donnée n'est envoyée à un serveur.
@@ -724,10 +650,7 @@ function loadTasks(){
 
   }catch(error){
 
-    console.warn(
-      "Impossible de charger les tâches.",
-      error
-    );
+    console.error("Erreur de chargement :", error);
 
     tasks = [];
 
@@ -738,10 +661,9 @@ function loadTasks(){
 function createTask(text){
 
   return {
-    id:Date.now() + Math.random(),
-    text:text.trim(),
-    completed:false,
-    createdAt:new Date().toISOString()
+    id: Date.now() + Math.random(),
+    text: text.trim(),
+    completed: false
   };
 
 }
@@ -749,17 +671,16 @@ function createTask(text){
 function addTask(){
 
   const input = $("taskInput");
-
   const text = input.value.trim();
 
   if(!text){
+
     input.focus();
     return;
+
   }
 
-  tasks.unshift(
-    createTask(text)
-  );
+  tasks.unshift(createTask(text));
 
   saveTasks();
 
@@ -779,7 +700,7 @@ function toggleTask(id){
 
       return {
         ...task,
-        completed:!task.completed
+        completed: !task.completed
       };
 
     }
@@ -808,13 +729,6 @@ function deleteTask(id){
 
 function clearCompleted(){
 
-  const completedCount =
-    tasks.filter(task => task.completed).length;
-
-  if(completedCount === 0){
-    return;
-  }
-
   tasks = tasks.filter(
     task => !task.completed
   );
@@ -842,8 +756,7 @@ function render(){
 
     tasks.forEach(task => {
 
-      const element =
-        document.createElement("div");
+      const element = document.createElement("div");
 
       element.className =
         "task" +
@@ -854,12 +767,6 @@ function render(){
 
       checkbox.className = "checkbox";
       checkbox.type = "button";
-      checkbox.setAttribute(
-        "aria-label",
-        task.completed
-          ? "Marquer comme non terminée"
-          : "Marquer comme terminée"
-      );
 
       checkbox.textContent =
         task.completed ? "✓" : "";
@@ -881,10 +788,6 @@ function render(){
       deleteButton.className = "delete";
       deleteButton.type = "button";
       deleteButton.textContent = "×";
-      deleteButton.setAttribute(
-        "aria-label",
-        "Supprimer la tâche"
-      );
 
       deleteButton.addEventListener(
         "click",
@@ -905,11 +808,7 @@ function render(){
 
 }
 
-function updateStats(){Donc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quan
+function updateStats(){
 
   const total = tasks.length;
 
@@ -945,7 +844,9 @@ Puis ferme le site → quan
   }else if(done === total){
 
     $("taskSummary").textContent =
-      `${total} tâche${total > 1 ? "s" : ""} · Tout est terminé`;
+      total + " tâche" +
+      (total > 1 ? "s" : "") +
+      " · Tout est terminé";
 
     $("progressText").textContent =
       "Bravo, tout est terminé !";
@@ -953,10 +854,15 @@ Puis ferme le site → quan
   }else{
 
     $("taskSummary").textContent =
-      `${done} terminée${done > 1 ? "s" : ""} · ${remaining} restante${remaining > 1 ? "s" : ""}`;
+      done + " terminée" +
+      (done > 1 ? "s" : "") +
+      " · " +
+      remaining + " restante" +
+      (remaining > 1 ? "s" : "");
 
     $("progressText").textContent =
-      `${done} sur ${total} terminée${done > 1 ? "s" : ""}`;
+      done + " sur " + total + " terminée" +
+      (done > 1 ? "s" : "");
 
   }
 
@@ -969,7 +875,7 @@ $("addButton").addEventListener(
 
 $("taskInput").addEventListener(
   "keydown",
-  event => {
+  function(event){
 
     if(event.key === "Enter"){
       addTask();
@@ -990,17 +896,5 @@ render();
 </script>
 
 </body>
-</html>Donc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quanDonc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quanDonc par exemple, quelqu'un ajoute :
-
-    Faire mes devoirs
-
-Puis ferme le site → quan
+</html>
 ```
